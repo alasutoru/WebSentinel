@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1000,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "hotjar.com", "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "ping", "media", "websocket"] }
+  },
+  {
+    "id": 1001,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "clarity.ms", "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "ping", "media", "websocket"] }
+  },
+  {
+    "id": 1010,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { "urlFilter": "coin-hive.com", "resourceTypes": ["script", "image", "xmlhttprequest", "sub_frame", "ping", "media", "websocket"] }
+  },
+  {
+    "id": 9001,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { 
+      "urlFilter": "http://*", 
+      "resourceTypes": ["main_frame"],
+      "excludedDomains": ["google.com", "youtube.com", "facebook.com", "github.com"] 
+    }
+  },
+  {
+    "id": 9002,
+    "priority": 1,
+    "action": { 
+      "type": "modifyHeaders", 
+      "requestHeaders": [{ "header": "Referer", "operation": "remove" }] 
+    },
+    "condition": { 
+      "urlFilter": "|http*", 
+      "resourceTypes": ["main_frame", "sub_frame", "xmlhttprequest", "script", "image"],
+      "excludedDomains": ["google.com", "facebook.com"] 
+    }
+  },
+  {
+    "id": 9003,
+    "priority": 1,
+    "action": { "type": "block" },
+    "condition": { 
+      "resourceTypes": ["sub_frame"], 
+      "domainType": "thirdParty",
+      "excludedDomains": ["google.com", "youtube.com", "facebook.com", "apple.com"] 
+    }
+  },
+  {
+    "id": 9100,
+    "priority": 2,
+    "action": { "type": "allow" },
+    "condition": { "urlFilter": "||youtube.com", "resourceTypes": ["main_frame", "sub_frame", "script", "xmlhttprequest"] }
+  },
+  {
+    "id": 9101,
+    "priority": 2,
+    "action": { "type": "allow" },
+    "condition": { "urlFilter": "||google.com", "resourceTypes": ["main_frame", "sub_frame", "script", "xmlhttprequest"] }
+  }
+]
