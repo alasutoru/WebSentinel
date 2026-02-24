@@ -57,6 +57,33 @@
        點擊左上角的「載入未封裝項目 (Load unpacked)」。
        選擇 `WebSentinel` 資料夾。
 
+---
+
+## 如何驗證防護效果 (Verification)
+
+安裝完成後，您可以透過以下方式驗證核心防護是否生效：
+
+### 1. 驗證：HTTP 物理斷線 (Zero Trust)
+*   **測試網址**：訪問 `http://neverssl.com` (注意是 http 而非 https)。
+*   **預期結果**：網頁應顯示 `ERR_BLOCKED_BY_CLIENT`，代表不安全連線已被成功切斷。
+
+### 2. 驗證：第三方 iframe 攔截
+*   **測試網址**：訪問任何包含第三方內嵌框架的頁面。
+*   **預期結果**：非 Google/Facebook/Apple 排除清單內的第三方框架將顯示為空白，有效防禦點擊劫持與追蹤。
+
+### 3. 驗證：反追蹤與廣告阻擋
+*   **操作步驟**：
+    1. 打開任何新聞網站 (如 `ettoday.net`)。
+    2. 按下 `F12` 打開開發者工具，切換至 **Network (網路)** 標籤。
+    3. 在過濾列輸入 `blocked`。
+*   **預期結果**：您會看到紅色的攔截紀錄 (如 `doubleclick.net`, `appier.net`)，Status 顯示為 `(blocked:devtools)`。
+
+### 4. 驗證：隱身模式 (Referer Stripping)
+*   **操作步驟**：在開發者工具的 Network 標籤中，點擊任何正常加載的請求，檢查 **Request Headers**。
+*   **預期結果**：`Referer` 欄位應已被移除或限制，防止您的跳轉路徑被追蹤。
+
+---
+
 ### 自定義圖示
 專案預設包含黑色極簡風格圖示。若需更換，請準備 PNG 檔案並替換 `WebSentinel/images/` 資料夾中的圖片：
    `icon16.png` (16x16)
