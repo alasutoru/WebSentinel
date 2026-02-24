@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "WebSentinel - 廣告與安全防護",
-  "version": "1.0",
+  "version": "1.1.0",
   "description": "輕量級的網路廣告攔截與隱私安全防護擴充功能。",
   "permissions": [
     "declarativeNetRequest",
